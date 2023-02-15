@@ -12,7 +12,6 @@ public class ItemDecoration {
 
     public ItemDecoration(String content) {
         this.content = content;
-
     }
 
     @Override

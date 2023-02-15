@@ -40,8 +40,8 @@ public class PlayerListener implements Listener {
                 .material(Material.EMERALD)
                 .displayName(new ItemDecoration("&eТестовый предмет!"))
                 .category(new ItemCategory("Тестовая категория", "#55FF55"))
-                .loreLine(1, new ItemDecoration("&7Ваше здоровье: &e{health}"))
-                .loreLine(2, new ItemDecoration("&fСтрока 2: &6{1}"))
+                .loreLine(new ItemDecoration("&7Ваше здоровье: &e{health}"))
+                .loreLine(new ItemDecoration("&fСтрока 2: &6{1}"))
                 .clickAction(clickEvent -> {
                     if (clickEvent.getHand() == EquipmentSlot.HAND) {
                         Player clicker = event.getPlayer();
