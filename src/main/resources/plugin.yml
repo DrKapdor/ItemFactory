@@ -1,0 +1,7 @@
+name: ItemFactory
+version: 1.0-SNAPSHOT
+author: DrKapdor
+main: me.drkapdor.itemfactory.ItemFactoryPlugin
+api-version: 1.16
+website: https://dev.funbaze.ru/
+description: Плагин, позволяющий создавать предметы с уникальными свойствами
