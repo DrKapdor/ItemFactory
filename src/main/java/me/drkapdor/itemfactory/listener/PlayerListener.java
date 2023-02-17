@@ -1,7 +1,5 @@
 package me.drkapdor.itemfactory.listener;
 
-import com.google.common.base.Supplier;
-import me.drkapdor.itemfactory.ItemFactoryPlugin;
 import me.drkapdor.itemfactory.api.CustomItem;
 import me.drkapdor.itemfactory.api.ItemCategory;
 import me.drkapdor.itemfactory.api.ItemFactory;
@@ -20,9 +18,6 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
-
-import java.util.HashMap;
-import java.util.List;
 
 public class PlayerListener implements Listener {
 
@@ -63,7 +58,7 @@ public class PlayerListener implements Listener {
             ItemStack itemStack = player.getEquipment().getItemInMainHand();
             if (itemStack.getItemMeta() != null) {
                 NbtWatcher<ItemMeta> watcher = new NbtWatcher<>(itemStack.getItemMeta());
-                watcher.getValue("itemfactory.id", PersistentDataType.STRING).ifPresent(value -> {
+                watcher.getValueOptional("itemfactory.id", PersistentDataType.STRING).ifPresent(value -> {
                     itemFactory.getRegistry().get(value).ifPresent(customItem -> {
                         CustomItemUseEvent customItemUseEvent = new CustomItemUseEvent(player, event.getAction(), event.getItem(),
                                 event.getClickedBlock(), event.getBlockFace(), event.getHand(), customItem);

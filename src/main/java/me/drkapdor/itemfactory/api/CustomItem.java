@@ -6,7 +6,7 @@ import lombok.Singular;
 import me.drkapdor.itemfactory.api.event.CustomItemUseEvent;
 import me.drkapdor.itemfactory.entity.decoration.ItemDecoration;
 import me.drkapdor.itemfactory.entity.decoration.ItemPlaceholder;
-import me.drkapdor.itemfactory.entity.nbt.NbtApplier;
+import me.drkapdor.itemfactory.entity.nbt.NbtWatcher;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -28,7 +28,10 @@ public class CustomItem {
     public ItemStack toItemStack(ItemPlaceholder... placeholders) {
         ItemStack itemStack = new ItemStack(material);
         applyMetadata(itemStack, placeholders);
-        return new NbtApplier(itemStack).append("itemfactory.id", id).complete();
+        NbtWatcher<ItemMeta> watcher = new NbtWatcher<>(itemStack.getItemMeta());
+        watcher.set("itemfactory.id", id);
+        itemStack.setItemMeta(watcher.getDataHolder());
+        return itemStack;
     }
 
     public void applyMetadata(ItemStack itemStack, ItemPlaceholder... placeholders) {

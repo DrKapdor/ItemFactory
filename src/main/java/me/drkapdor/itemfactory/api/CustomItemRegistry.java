@@ -24,4 +24,9 @@ public class CustomItemRegistry {
     public Optional<CustomItem> get(String id) {
         return Optional.ofNullable(customItems.get(id));
     }
+
+    public CustomItem unchecked(String id) {
+        return customItems.get(id);
+    }
+
 }
