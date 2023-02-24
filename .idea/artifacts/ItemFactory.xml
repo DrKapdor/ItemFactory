@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="ItemFactory">
-    <output-path>$USER_HOME$/Desktop/funbaze/FBServer/plugins</output-path>
-    <root id="archive" name="ItemFactory.jar">
-      <element id="module-output" name="ItemFactory" />
-    </root>
-  </artifact>
-</component>
