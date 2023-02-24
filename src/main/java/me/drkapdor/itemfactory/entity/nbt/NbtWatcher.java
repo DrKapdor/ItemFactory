@@ -50,6 +50,16 @@ public class NbtWatcher<T extends PersistentDataHolder> {
         return this;
     }
 
+    public NbtWatcher<T> set(String key, long value) {
+        dataHolder.getPersistentDataContainer().set(
+                new NamespacedKey(
+                        ItemFactoryPlugin.getInstance(),
+                        key.toLowerCase()),
+                PersistentDataType.LONG,
+                value);
+        return this;
+    }
+
     public NbtWatcher<T> set(String key, byte value) {
         dataHolder.getPersistentDataContainer().set(
                 new NamespacedKey(

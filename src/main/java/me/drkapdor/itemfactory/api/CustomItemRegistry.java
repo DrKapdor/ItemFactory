@@ -3,7 +3,6 @@ package me.drkapdor.itemfactory.api;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
-import java.util.UUID;
 
 public class CustomItemRegistry {
 
